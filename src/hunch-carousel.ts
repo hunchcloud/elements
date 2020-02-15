@@ -1,7 +1,7 @@
 const observerOptions = {
   childList: true,
-  attributes: false,
-  subtree: false
+  attributes: true,
+  subtree: true
 };
 
 // Icons from https://material.io/resources/icons
@@ -34,7 +34,9 @@ class HunchCarousel extends HTMLElement {
     mutationList.forEach(mutation => {
       switch (mutation.type) {
         case "childList":
+        case "attributes":
           this.render();
+          break;
       }
     });
   };
@@ -48,7 +50,7 @@ class HunchCarousel extends HTMLElement {
   };
 
   getSlides = () => {
-    return this.querySelectorAll(".slide");
+    return [...this.children].filter(el => el.classList.contains("slide"));
   };
 
   addControls = () => {
@@ -78,7 +80,7 @@ class HunchCarousel extends HTMLElement {
   next = () => {
     const next = this.active + 1;
     const total = this.getSlides().length;
-    this.active = next === total ? 0 : next;
+    this.active = next >= total ? 0 : next;
     this.render();
   };
 
