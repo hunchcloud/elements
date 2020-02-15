@@ -1,5 +1,4 @@
 import rollupTypescript from "@rollup/plugin-typescript";
-import { terser } from "rollup-plugin-terser";
 
 const isProduction = process.env.NODE_ENV === "production";
 
@@ -8,7 +7,7 @@ const entries = isProduction
   : ["src/index.ts"];
 
 export default entries.map(input => ({
-  plugins: [rollupTypescript(), isProduction && terser()],
+  plugins: [rollupTypescript()],
   input,
   output: {
     dir: "dist",

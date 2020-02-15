@@ -1,12 +1,14 @@
 {
+  "name": "@hunchcloud/elements",
+  "main": "dist/index.js",
   "scripts": {
+    "build": "NODE_ENV=production rollup -c",
     "start": "rollup -c -w"
   },
   "devDependencies": {
     "@rollup/plugin-typescript": "^3.0.0",
     "lite-server": "^2.5.4",
     "rollup": "^1.31.0",
-    "rollup-plugin-terser": "^5.2.0",
     "tslib": "^1.10.0",
     "typescript": "^3.7.5"
   }
