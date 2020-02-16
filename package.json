@@ -1,6 +1,26 @@
 {
   "name": "@hunchcloud/elements",
+  "version": "0.1.0",
+  "description": "A collection of custom elements",
   "main": "dist/index.js",
+  "files": [
+    "dist"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/hunchcloud/elements.git"
+  },
+  "keywords": [
+    "custom elements",
+    "web components",
+    "svg"
+  ],
+  "author": "Ping Chen",
+  "license": "BSD-3-Clause",
+  "bugs": {
+    "url": "https://github.com/hunchcloud/elements/issues"
+  },
+  "homepage": "https://github.com/hunchcloud/elements#readme",
   "scripts": {
     "build": "NODE_ENV=production rollup -c",
     "start": "rollup -c -w"
