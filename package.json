@@ -1,6 +1,6 @@
 {
   "name": "@hunchcloud/elements",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "A collection of custom elements",
   "main": "dist/index.js",
   "files": [
@@ -21,7 +21,7 @@
   },
   "homepage": "https://github.com/hunchcloud/elements#readme",
   "scripts": {
-    "build": "NODE_ENV=production rollup -c",
+    "build": "tsc -d --outDir dist",
     "release": "rm -r dist && yarn build && npm publish --access public",
     "start": "rollup -c -w"
   },
