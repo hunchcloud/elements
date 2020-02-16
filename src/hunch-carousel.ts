@@ -20,26 +20,19 @@ const controlStyles = {
   zIndex: 1
 };
 
+const template = document.createElement("template");
+template.innerHTML = `<slot>No slides</slot>`;
+
 class HunchCarousel extends HTMLElement {
   active: number = 0;
   timer: number = -1;
 
   connectedCallback() {
-    const observer = new MutationObserver(this.handleMutation);
-    observer.observe(this, observerOptions);
+    const shadow = this.attachShadow({ mode: "open" });
+    shadow.appendChild(template.content.cloneNode(true));
     this.addControls();
+    this.render();
   }
-
-  handleMutation = (mutationList: Array<MutationRecord>) => {
-    mutationList.forEach(mutation => {
-      switch (mutation.type) {
-        case "childList":
-        case "attributes":
-          this.render();
-          break;
-      }
-    });
-  };
 
   restartTimer = () => {
     window.clearInterval(this.timer);
@@ -50,7 +43,7 @@ class HunchCarousel extends HTMLElement {
   };
 
   getSlides = () => {
-    return [...this.children].filter(el => el.classList.contains("slide"));
+    return this.children;
   };
 
   addControls = () => {
@@ -67,8 +60,10 @@ class HunchCarousel extends HTMLElement {
     });
     controlNext.addEventListener("click", this.next);
 
-    this.appendChild(controlPrev);
-    this.appendChild(controlNext);
+    if (this.shadowRoot) {
+      this.shadowRoot.appendChild(controlPrev);
+      this.shadowRoot.appendChild(controlNext);
+    }
   };
 
   prev = () => {
