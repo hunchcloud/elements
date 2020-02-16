@@ -2,17 +2,16 @@ export interface ObservableElement extends HTMLElement {
   load: () => void;
 }
 
-class HunchObserver {
+export class HunchObserver {
   observer: IntersectionObserver;
 
   constructor() {
     this.observer = new IntersectionObserver(
-      (entries, self) => {
+      entries => {
         entries.forEach(entry => {
           if (entry.isIntersecting) {
             const target = entry.target as ObservableElement;
             target.load();
-            self.unobserve(target);
           }
         });
       },
@@ -22,8 +21,12 @@ class HunchObserver {
     );
   }
 
-  observe(root: ObservableElement) {
-    this.observer.observe(root);
+  observe(el: ObservableElement) {
+    this.observer.observe(el);
+  }
+
+  unobserve(el: ObservableElement) {
+    this.observer.unobserve(el);
   }
 }
 

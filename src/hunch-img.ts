@@ -1,19 +1,24 @@
-import { ObservableElement, hunchObserver } from "./observer";
+import { hunchObserver } from "./hunch-observer";
 
-class HunchImg extends HTMLElement implements ObservableElement {
+class HunchImg extends HTMLElement {
   loaded: boolean = false;
   img: HTMLImageElement = document.createElement("img");
+  elStyle: HTMLStyleElement = document.createElement("style");
 
   static get observedAttributes() {
-    return ["data-src"];
+    return ["src", "srcset", "sizes"];
   }
 
   attributeChangedCallback() {
-    this.appendChild(this.img);
     this.render();
   }
 
   connectedCallback() {
+    const shadow = this.attachShadow({ mode: "closed" });
+    this.elStyle.textContent =
+      "img { width: 100%; height: 100%; object-fit: inherit; }";
+    shadow.appendChild(this.elStyle);
+    shadow.appendChild(this.img);
     this.render();
     hunchObserver.observe(this);
   }
@@ -21,18 +26,13 @@ class HunchImg extends HTMLElement implements ObservableElement {
   load() {
     this.loaded = true;
     this.render();
+    hunchObserver.unobserve(this);
   }
 
   render() {
-    for (let key in this.dataset) {
-      const value = this.dataset[key];
-      if (key === "class" && value) {
-        this.img.className = value;
-      } else if (key === "src" && this.loaded) {
-        this.img.src = value || "";
-      } else {
-        this.img.dataset[key] = value;
-      }
+    for (let key of HunchImg.observedAttributes) {
+      const value = this.getAttribute(key);
+      if (value && this.loaded) this.img.setAttribute(key, value);
     }
   }
 }
