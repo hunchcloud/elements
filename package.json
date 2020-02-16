@@ -12,8 +12,7 @@
   },
   "keywords": [
     "custom elements",
-    "web components",
-    "svg"
+    "web components"
   ],
   "author": "Ping Chen",
   "license": "BSD-3-Clause",
@@ -23,6 +22,7 @@
   "homepage": "https://github.com/hunchcloud/elements#readme",
   "scripts": {
     "build": "NODE_ENV=production rollup -c",
+    "release": "rm -r dist && yarn build && npm publish --access public",
     "start": "rollup -c -w"
   },
   "devDependencies": {
