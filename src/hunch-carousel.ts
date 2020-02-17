@@ -26,16 +26,51 @@ template.innerHTML = `
 :host {
   position: relative;
   display: block;
+  overflow: hidden;
 }
+
 ::slotted(*) {
+  display: none;
   position: absolute;
-  top: 0;
-  right: 0;
+  top:0;
+  right:0;
   bottom: 0;
   left: 0;
   width: 100%;
   height: 100%;
+}
+
+::slotted(.prev),
+::slotted(.next),
+::slotted(.active) {
+  display: block;
+}
+
+::slotted(.left) {
+  transform: translateX(-100%);
+  transition: transform 0.6s;
+}
+::slotted(.next.active) {
+  left: 100%;
+}
+
+::slotted(.right) {
+  transform: translateX(100%);
+  transition: transform 0.6s;
+}
+::slotted(.prev.active) {
+  left: -100%;
+}
+
+:host([crossfade]) ::slotted(*) {
+  display: block;
   transition: opacity 0.6s;
+  opacity: 0;
+}
+:host([crossfade]) ::slotted(.active) {
+  opacity: 1;
+  transform: none;
+  left: 0;
 }
 </style>
 <slot>No slides</slot>
@@ -55,7 +90,7 @@ class HunchCarousel extends HTMLElement {
   restartTimer = () => {
     window.clearInterval(this.timer);
 
-    this.timer = window.setInterval(() => {
+    this.timer = window.setTimeout(() => {
       this.next();
     }, 3000);
   };
@@ -85,28 +120,50 @@ class HunchCarousel extends HTMLElement {
   };
 
   prev = () => {
-    const prev = this.active - 1;
-    this.active = prev < 0 ? this.getSlides().length - 1 : prev;
-    this.render();
+    this.render(false);
   };
 
   next = () => {
-    const next = this.active + 1;
-    const total = this.getSlides().length;
-    this.active = next >= total ? 0 : next;
     this.render();
   };
 
-  render() {
+  getPrevIndex = () => {
+    const prev = this.active - 1;
+    return prev < 0 ? this.getSlides().length - 1 : prev;
+  };
+
+  getNextIndex = () => {
+    const next = this.active + 1;
+    const total = this.getSlides().length;
+    return next >= total ? 0 : next;
+  };
+
+  render(next = true) {
+    const positionCls = next ? "next" : "prev";
+    const transitionCls = next ? "left" : "right";
     const slides = this.getSlides();
     const length = slides.length;
-    for (let i = 0; i < length; i++) {
-      const el = slides[i] as HTMLElement;
-      if (this.active === i) {
-        el.style.opacity = "1";
-      } else {
-        el.style.opacity = "0";
-      }
+    if (this.timer === -1) {
+      const el = slides[0] as HTMLElement;
+      el.classList.add("active");
+    } else {
+      const nextIndex = next ? this.getNextIndex() : this.getPrevIndex();
+      const elCurrent = slides[this.active] as HTMLElement;
+      const elNext = slides[nextIndex] as HTMLElement;
+      elCurrent.classList.add(positionCls);
+      elCurrent.classList.remove("active");
+      elNext.classList.add("active", positionCls);
+      setTimeout(() => {
+        elCurrent.classList.add(transitionCls);
+        elNext.classList.add(transitionCls);
+      });
+      setTimeout(() => {
+        for (let i = 0; i < length; i++) {
+          const el = slides[i] as HTMLElement;
+          el.classList.remove("left", "right", "next", "prev");
+        }
+        this.active = nextIndex;
+      }, 600);
     }
     this.restartTimer();
   }
