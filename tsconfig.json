@@ -1,7 +1,7 @@
 {
   "compilerOptions": {
+    "outDir": "dist",
+    "strict": true,
     "target": "ES6",
-    "strict": true
   },
-  "exclude": ["dist"]
 }

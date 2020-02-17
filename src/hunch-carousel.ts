@@ -21,7 +21,15 @@ const controlStyles = {
 };
 
 const template = document.createElement("template");
-template.innerHTML = `<slot>No slides</slot>`;
+template.innerHTML = `
+<style>
+:host {
+  position: relative;
+  display: block;
+}
+</style>
+<slot>No slides</slot>
+`;
 
 class HunchCarousel extends HTMLElement {
   active: number = 0;

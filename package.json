@@ -21,14 +21,14 @@
   },
   "homepage": "https://github.com/hunchcloud/elements#readme",
   "scripts": {
-    "build": "tsc -d --outDir dist",
+    "build": "tsc -d",
     "release": "rm -r dist && yarn build && npm publish --access public",
-    "start": "rollup -c -w"
+    "start": "tsc -w"
   },
   "devDependencies": {
     "@rollup/plugin-typescript": "^3.0.0",
     "lite-server": "^2.5.4",
-    "rollup": "^1.31.0",
+    "rollup": "^1.31.1",
     "tslib": "^1.10.0",
     "typescript": "^3.7.5"
   }
