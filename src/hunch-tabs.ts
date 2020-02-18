@@ -1,6 +1,11 @@
 const template = document.createElement("template");
 
 template.innerHTML = `
+<style>
+:host {
+  display: block;
+}
+</style>
 <slot name="tabs"></slot>
 <slot name="panels"></slot>
 `;
