@@ -55,9 +55,9 @@ class HunchTabs extends HTMLElement {
       for (let i = 0; i < panelsWrap.children.length; i++) {
         const el = panelsWrap.children[i] as HTMLElement;
         if (i === this.active) {
-          el.style.display = "block";
+          el.hidden = false;
         } else {
-          el.style.display = "none";
+          el.hidden = true;
         }
       }
     }
