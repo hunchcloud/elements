@@ -1,9 +1,3 @@
-const observerOptions = {
-  childList: true,
-  attributes: true,
-  subtree: true
-};
-
 // Icons from https://material.io/resources/icons
 const iconPrev = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="32" height="32" fill="white"><path d="M15.41 7.41L14 6l-6 6 6 6 1.41-1.41L10.83 12l4.58-4.59z"/></svg>`;
 const iconNext = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="32" height="32" fill="white"><path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6-6-6z"/></svg>`;
@@ -95,8 +89,8 @@ class HunchCarousel extends HTMLElement {
   connectedCallback() {
     const shadow = this.attachShadow({ mode: "open" });
     shadow.appendChild(template.content.cloneNode(true));
-    this.addControls();
     this.render();
+    this.addControls();
     this.addEventListener("touchstart", this.onTouchStart);
     this.addEventListener("touchend", this.onTouchEnd);
   }
