@@ -79,17 +79,19 @@ template.innerHTML = `
 class HunchCarousel extends HTMLElement {
   active: number = 0;
   timer: number = -1;
+  touchStartScreenX: number = 0;
 
   connectedCallback() {
     const shadow = this.attachShadow({ mode: "open" });
     shadow.appendChild(template.content.cloneNode(true));
     this.addControls();
     this.render();
+    this.addEventListener("touchstart", this.onTouchStart);
+    this.addEventListener("touchend", this.onTouchEnd);
   }
 
   restartTimer = () => {
     window.clearInterval(this.timer);
-
     this.timer = window.setTimeout(() => {
       this.next();
     }, 3000);
@@ -116,6 +118,28 @@ class HunchCarousel extends HTMLElement {
     if (this.shadowRoot) {
       this.shadowRoot.appendChild(controlPrev);
       this.shadowRoot.appendChild(controlNext);
+    }
+  };
+
+  onTouchStart = e => {
+    const touches = e.changedTouches;
+    if (touches.length === 1) {
+      const touch = touches[0];
+      this.touchStartScreenX = touch.screenX;
+    }
+  };
+
+  onTouchEnd = e => {
+    const touches = e.changedTouches;
+    if (touches.length === 1) {
+      const touch = touches[0];
+      if (Math.abs(touch.screenX - this.touchStartScreenX) > 30) {
+        if (touch.screenX < this.touchStartScreenX) {
+          this.next();
+        } else {
+          this.prev();
+        }
+      }
     }
   };
 
