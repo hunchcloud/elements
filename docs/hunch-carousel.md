@@ -6,7 +6,7 @@ object-fit: cover;
 
 ## Default
 
-<hunch-carousel style="height: 15rem;">
+<hunch-carousel style="height: 15rem;" interval="2000">
   <img
     src="https://images.unsplash.com/photo-1581252397779-5d758caff3cb?ixlib=rb-1.2.1&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=1080&fit=max&ixid=eyJhcHBfaWQiOjExNDY4M30"
     class="slide"

@@ -80,6 +80,17 @@ class HunchCarousel extends HTMLElement {
   active: number = 0;
   timer: number = -1;
   touchStartScreenX: number = 0;
+  interval: number = 4000;
+
+  static get observedAttributes() {
+    return ["interval"];
+  }
+
+  attributeChangedCallback(name, _, newVal) {
+    if (name === "interval") {
+      this.interval = newVal;
+    }
+  }
 
   connectedCallback() {
     const shadow = this.attachShadow({ mode: "open" });
@@ -94,7 +105,7 @@ class HunchCarousel extends HTMLElement {
     window.clearInterval(this.timer);
     this.timer = window.setTimeout(() => {
       this.next();
-    }, 3000);
+    }, this.interval);
   };
 
   getSlides = () => {
@@ -121,7 +132,7 @@ class HunchCarousel extends HTMLElement {
     }
   };
 
-  onTouchStart = e => {
+  onTouchStart = (e: TouchEvent) => {
     const touches = e.changedTouches;
     if (touches.length === 1) {
       const touch = touches[0];
@@ -129,7 +140,7 @@ class HunchCarousel extends HTMLElement {
     }
   };
 
-  onTouchEnd = e => {
+  onTouchEnd = (e: TouchEvent) => {
     const touches = e.changedTouches;
     if (touches.length === 1) {
       const touch = touches[0];
