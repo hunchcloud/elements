@@ -7,8 +7,8 @@ template.innerHTML = `
 
 class HunchTabs extends HTMLElement {
   active: number = 0;
-  tabsSlot: HTMLSlotElement | null;
-  panelsSlot: HTMLSlotElement | null;
+  tabsSlot: HTMLSlotElement | null = null;
+  panelsSlot: HTMLSlotElement | null = null;
 
   connectedCallback() {
     const shadow = this.attachShadow({ mode: "open" });
@@ -21,34 +21,44 @@ class HunchTabs extends HTMLElement {
     this.render(0);
   }
 
-  onClickTabs = e => {
-    const parent = e.target.parentElement;
-    const index = [...parent.children].indexOf(e.target);
-    this.render(index);
+  onClickTabs = (e: MouseEvent) => {
+    const target = e.target as HTMLElement;
+    const parent = target.parentElement;
+    if (parent) {
+      const index = [...parent.children].indexOf(target);
+      this.render(index);
+    }
   };
 
-  render(index) {
+  render(index: number) {
     this.active = index;
 
-    const tabsWrap = this.tabsSlot?.assignedNodes()[0];
-    for (let i = 0; i < tabsWrap.children.length; i++) {
-      const el = tabsWrap.children[i];
-      if (i === this.active) {
-        el.classList.add("active");
-      } else {
-        el.classList.remove("active");
+    const tabsWrap = this.tabsSlot?.assignedElements()[0];
+    if (tabsWrap) {
+      for (let i = 0; i < tabsWrap.children.length; i++) {
+        const el = tabsWrap.children[i];
+        if (i === this.active) {
+          el.classList.add("active");
+        } else {
+          el.classList.remove("active");
+        }
       }
     }
-    const panelsWrap = this.panelsSlot.assignedNodes()[0];
-    for (let i = 0; i < panelsWrap.children.length; i++) {
-      const el = panelsWrap.children[i];
-      if (i === this.active) {
-        el.style.display = "block";
-      } else {
-        el.style.display = "none";
+
+    const panelsWrap = this.panelsSlot?.assignedElements()[0];
+    if (panelsWrap) {
+      for (let i = 0; i < panelsWrap.children.length; i++) {
+        const el = panelsWrap.children[i] as HTMLElement;
+        if (i === this.active) {
+          el.style.display = "block";
+        } else {
+          el.style.display = "none";
+        }
       }
     }
   }
 }
 
 customElements.define("hunch-tabs", HunchTabs);
+
+export {};

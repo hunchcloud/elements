@@ -80,7 +80,7 @@ class HunchCarousel extends HTMLElement {
     return ["interval"];
   }
 
-  attributeChangedCallback(name, _, newVal) {
+  attributeChangedCallback(name: string, _: number, newVal: number) {
     if (name === "interval") {
       this.interval = newVal;
     }
@@ -199,3 +199,5 @@ class HunchCarousel extends HTMLElement {
 }
 
 customElements.define("hunch-carousel", HunchCarousel);
+
+export {};
