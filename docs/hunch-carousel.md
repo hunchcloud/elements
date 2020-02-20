@@ -1,3 +1,5 @@
+# &lt;hunch-carousel>
+
 <style>
 .slide {
 object-fit: cover;

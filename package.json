@@ -23,10 +23,12 @@
   "browserslist": "last 2 Chrome versions",
   "scripts": {
     "build": "tsc -d",
+    "build:docs": "node scripts/build-docs.js",
     "release": "rm -r dist && yarn build && npm publish --access public",
     "start": "tsc -w"
   },
   "devDependencies": {
+    "@fullhuman/postcss-purgecss": "^2.0.6",
     "@nonbili/posthtml-md-element": "https://github.com/nonbili/posthtml-md-element.git#f96bf31a2188607cc55d1b8f27c5e176dddff4bc",
     "@rollup/plugin-typescript": "^3.0.0",
     "cssnano": "^4.1.10",
@@ -35,6 +37,7 @@
     "posthtml": "^0.12.0",
     "posthtml-expressions": "^1.1.1",
     "rollup": "^1.31.1",
+    "tailwindcss": "^1.2.0",
     "tslib": "^1.10.0",
     "typescript": "^3.7.5"
   }

@@ -1,13 +1,29 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
   <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
     <title>Documentation of @hunchcloud/elements</title>
+    <link rel="stylesheet" href="../docs/index.css" />
   </head>
-  <body>
-    <article class="container">
-      <posthtml-md src="{{src}}"></posthtml-md>
-    </article>
+  <body class="flex flex-col min-h-screen">
+    <header
+      class="sticky top-0 h-16 px-4 flex items-center bg-indigo-500 text-white text-xl font-bold z-10 shadow-md"
+    >
+      <a href="/">Hunch Elements</a>
+    </header>
+    <div class="flex flex-1">
+      <nav
+        class="sticky py-8 bg-gray-100 overflow-auto"
+        style="top: 4rem; height: calc(100vh - 4rem);"
+      >
+        <ul>
+          {{{ list }}}
+        </ul>
+      </nav>
+      <main class="container p-8">
+        <posthtml-md src="{{src}}"></posthtml-md>
+      </main>
+    </div>
   </body>
 </html>
