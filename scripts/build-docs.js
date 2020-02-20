@@ -10,9 +10,9 @@ const mkNavList = element =>
     .map(
       el => `
 <li>
-  <a class="block pl-4 pr-16 ${
+  <a class="block pl-4 pr-20 ${
     element === el
-      ? "font-medium text-purple-500"
+      ? "font-semibold text-purple-500"
       : "hover:text-gray-800 text-gray-600"
   }" style="line-height: 2.5rem" href="/${el}.html">
     ${el}
