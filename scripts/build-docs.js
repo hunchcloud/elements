@@ -11,7 +11,9 @@ const mkNavList = element =>
       el => `
 <li>
   <a class="block pl-4 pr-16 ${
-    element === el ? "font-bold" : ""
+    element === el
+      ? "font-medium text-purple-500"
+      : "hover:text-gray-800 text-gray-600"
   }" style="line-height: 2.5rem" href="/${el}.html">
     ${el}
   </a>
@@ -19,14 +21,16 @@ const mkNavList = element =>
     )
     .join("");
 
-elements.forEach(el =>
+const mdToHtml = (src, dst, navItem) =>
   posthtml()
     .use(
       require("posthtml-expressions")({
-        locals: { list: mkNavList(el), src: `docs/${el}.md` }
+        locals: { list: mkNavList(navItem), src }
       })
     )
     .use(require("@nonbili/posthtml-md-element")({ html: true }))
     .process(readFileSync("docs/index.html", "utf8"))
-    .then(result => writeFileSync(`www/${el}.html`, result.html))
-);
+    .then(result => writeFileSync(dst, result.html));
+
+elements.forEach(el => mdToHtml("README.md", "www/index.html"));
+elements.forEach(el => mdToHtml(`docs/${el}.md`, `www/${el}.html`, el));
