@@ -10,9 +10,10 @@
     postcss "7.0.26"
     purgecss "^2.0.6"
 
-"@nonbili/posthtml-md-element@https://github.com/nonbili/posthtml-md-element.git#f96bf31a2188607cc55d1b8f27c5e176dddff4bc":
+"@nonbili/posthtml-md-element@^0.1.0":
   version "0.1.0"
-  resolved "https://github.com/nonbili/posthtml-md-element.git#f96bf31a2188607cc55d1b8f27c5e176dddff4bc"
+  resolved "https://registry.yarnpkg.com/@nonbili/posthtml-md-element/-/posthtml-md-element-0.1.0.tgz#45f17c0118f3c8552ecfaf457f4479f3d398e991"
+  integrity sha512-JG5DkN4sIJ/WAOWuSsbIMrItvC6M3VslU2CAhB8vhEk6pNLIMvnVavNn2oN+dLlyOuX6eieG3i1qq7drcQO4iw==
   dependencies:
     markdown-it "^10.0.0"
     posthtml-parser "^0.4.2"
