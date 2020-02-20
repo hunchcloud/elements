@@ -1,5 +1,6 @@
 const fs = require("fs");
 const posthtml = require("posthtml");
+const hljs = require("highlight.js");
 
 const readme = fs.readFileSync("docs/README.md", "utf8");
 
@@ -28,7 +29,26 @@ const mdToHtml = (src, dst, navItem) =>
         locals: { list: mkNavList(navItem), src }
       })
     )
-    .use(require("@nonbili/posthtml-md-element")({ html: true }))
+    .use(
+      require("@nonbili/posthtml-md-element")({
+        html: true,
+        highlight: (str, lang) => {
+          if (lang && hljs.getLanguage(lang)) {
+            try {
+              return (
+                '<pre class="hljs ' +
+                lang +
+                '">' +
+                hljs.highlight(lang, str, true).value +
+                "</pre>"
+              );
+            } catch (_) {}
+          }
+
+          return '<pre class="hljs">' + str + "</pre>";
+        }
+      })
+    )
     .process(fs.readFileSync("docs/index.html", "utf8"))
     .then(result => fs.writeFileSync(dst, result.html));
 

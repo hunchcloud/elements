@@ -5,10 +5,12 @@
 /* purgecss start ignore */
 *, *::before, *::after {
   box-sizing: border-box;
+  border:0 solid theme('colors.gray.200');
 }
 
 body {
   @apply text-gray-800 m-0 font-sans;
+  line-height: 1.5;
 }
 
 a {
@@ -35,5 +37,26 @@ h3 {
 
 nav ul {
   @apply m-0 p-0 list-none;
+}
+
+code {
+  @apply bg-gray-100 text-purple-400 rounded-sm text-base;
+  padding: 2px 4px;
+}
+
+pre {
+  @apply mb-4 rounded-sm text-base;
+}
+
+table {
+  border-collapse: collapse;
+}
+
+th {
+  @apply bg-gray-100 px-4 py-1;
+}
+
+td {
+  @apply border-t px-8 py-1;
 }
 /* purgecss end ignore */

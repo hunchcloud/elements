@@ -33,6 +33,7 @@
     "@fullhuman/postcss-purgecss": "^2.0.6",
     "@nonbili/posthtml-md-element": "^0.1.0",
     "cssnano": "^4.1.10",
+    "highlight.js": "^9.18.1",
     "marked": "^0.8.0",
     "posthtml": "^0.12.0",
     "posthtml-expressions": "^1.1.1",
