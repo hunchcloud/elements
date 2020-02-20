@@ -1,3 +1,7 @@
+# &lt;hunch-auto-focus>
+
+Focus the first child element with `autofocus` attribute.
+
 <style>
   .tabs {
     display: flex;
@@ -22,10 +26,10 @@
     <div>tab 2</div>
   </div>
   <div slot="panels" class="panels">
-    <hunch-focus class="panel" for=".input-1">panel1<input class="input-1"></hunch-focus>
-    <hunch-focus class="panel" for="#input-2">panel2<input id="input-2"></hunch-focus>
+    <hunch-auto-focus class="panel">panel1 <input autofocus></hunch-auto-focus>
+    <hunch-auto-focus class="panel">panel2 <input autofocus></hunch-auto-focus>
   </div>
 </hunch-tabs>
 
-<script src="../src/hunch-focus.ts"></script>
+<script src="../src/hunch-auto-focus.ts"></script>
 <script src="../src/hunch-tabs.ts"></script>
