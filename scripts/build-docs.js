@@ -1,7 +1,7 @@
-const { readFileSync, writeFileSync } = require("fs");
+const fs = require("fs");
 const posthtml = require("posthtml");
 
-const readme = readFileSync("docs/README.md", "utf8");
+const readme = fs.readFileSync("docs/README.md", "utf8");
 
 const elements = [...readme.matchAll(/]\((.*)\.md\)/g)].map(item => item[1]);
 
@@ -29,8 +29,12 @@ const mdToHtml = (src, dst, navItem) =>
       })
     )
     .use(require("@nonbili/posthtml-md-element")({ html: true }))
-    .process(readFileSync("docs/index.html", "utf8"))
-    .then(result => writeFileSync(dst, result.html));
+    .process(fs.readFileSync("docs/index.html", "utf8"))
+    .then(result => fs.writeFileSync(dst, result.html));
+
+try {
+  fs.mkdirSync("www");
+} catch (_) {}
 
 elements.forEach(el => mdToHtml("README.md", "www/index.html"));
 elements.forEach(el => mdToHtml(`docs/${el}.md`, `www/${el}.html`, el));
