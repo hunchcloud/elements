@@ -2,13 +2,15 @@
 
 A collection of custom element. Originally designed to be used on [Hunch](https://hunch.cloud), but can be used anywhere web components are supported.
 
+🛸 [Documentation](https://hunch-elements.netlify.com).
+
 Install by
 
 ```
 yarn add @hunchcloud/elements
 ```
 
-Then import
+then import by
 
 ```
 import '@hunchcloud/elements';

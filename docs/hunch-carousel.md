@@ -1,12 +1,31 @@
 # &lt;hunch-carousel>
 
+A carousel/slider element.
+
+## Observed attributes
+
+| name | type |
+| --- | --- |
+| interval | number |
+
+## Usage
+
+```html
+<hunch-carousel>
+  <div>Slide 1</div>
+  <div>Slide 2</div>
+</hunch-carousel>
+```
+
+## Example
+
 <style>
 .slide {
 object-fit: cover;
 }
 </style>
 
-## Default
+### Default
 
 <hunch-carousel style="height: 15rem;" interval="2000">
   <img
@@ -23,7 +42,7 @@ object-fit: cover;
   />
 </hunch-carousel>
 
-## Crossfade
+### Crossfade
 
 <hunch-carousel style="height: 15rem;" crossfade>
   <img

@@ -1,6 +1,5 @@
 # &lt;hunch-auto-focus>
 
-
 Focus the first child element with the `autofocus` attribute.
 
 Normally the `autofocus` only works when the element was first rendered. For example, if you have an `<input autofocus>` inside a modal, it works when opening the modal for the first time, but not afterwards.
@@ -44,14 +43,16 @@ With `<hunch-auto-focus>`, auto focusing works when attached to DOM or `hidden` 
 
 <hunch-tabs style="display: block; border: 1px solid lightgray; padding: 1rem">
   <div slot="tabs" class="tabs">
+    <div>tab 0</div>
     <div>tab 1</div>
     <div>tab 2</div>
   </div>
   <div slot="panels" class="panels">
-    <hunch-auto-focus class="panel">
+    <div>Select tab 1 or tab 2 to see it works</div>
+    <hunch-auto-focus hidden>
       Auto focus input <input autofocus>
     </hunch-auto-focus>
-    <hunch-auto-focus class="panel">
+    <hunch-auto-focus hidden>
       Auto focus textarea
       <input>
       <textarea class="block" autofocus></textarea>

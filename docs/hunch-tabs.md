@@ -1,3 +1,28 @@
+# &lt;hunch-tabs>
+
+A tabs container element.
+
+## Observed attributes
+
+None.
+
+## Usage
+
+```html
+<hunch-tabs>
+  <div slot="tabs">
+    <div>tab 1</div>
+    <div>tab 2</div>
+  </div>
+  <div slot="panels">
+    <div>panel1</div>
+    <div>panel2</div>
+  </div>
+</hunch-tabs>
+```
+
+## Example
+
 <style>
   .tabs {
     display: flex;
@@ -22,8 +47,8 @@
     <div>tab 2</div>
   </div>
   <div slot="panels" class="panels">
-    <div class="panel">panel1</div>
-    <div class="panel">panel2</div>
+    <div>panel1</div>
+    <div>panel2</div>
   </div>
 </hunch-tabs>
 

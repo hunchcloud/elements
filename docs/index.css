@@ -5,7 +5,7 @@
 /* purgecss start ignore */
 *, *::before, *::after {
   box-sizing: border-box;
-  border:0 solid theme('colors.gray.200');
+  border: 0 solid theme('colors.gray.200');
 }
 
 body {
@@ -31,7 +31,7 @@ h2 {
 }
 
 h3 {
-  font-size: 1.25em;
+  font-size: 1rem;
   margin: 1.25em 0 .67em;
 }
 
@@ -58,5 +58,18 @@ th {
 
 td {
   @apply border-t px-8 py-1;
+}
+
+input,
+textarea {
+  border-width: 1px;
+}
+
+main a {
+  @apply text-indigo-500;
+}
+
+main a:hover {
+  @apply underline;
 }
 /* purgecss end ignore */
