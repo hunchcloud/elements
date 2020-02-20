@@ -1,0 +1,47 @@
+version: 2.1
+jobs:
+  build:
+    docker:
+      - image: circleci/node:latest
+
+    steps:
+      - checkout
+
+      - restore_cache:
+          keys:
+          - deps-{{ checksum "package.json" }}-{{ checksum "yarn.lock" }}
+
+      - run:
+          command: |
+            git checkout -b gh-pages
+            git reset --hard origin/master
+
+      - run:
+          command: |
+            yarn add parcel
+            yarn docs:build
+            yarn docs:dist
+
+      - save_cache:
+          paths:
+            - node_modules
+          key: deps-{{ checksum "package.json" }}-{{ checksum "yarn.lock" }}
+
+      - run:
+          command: |
+            mv dist/* .
+            git config user.email "remotenonsense@gmail.com"
+            git config user.name "CircleCI"
+            git add . && git commit -am 'build gh-pages'
+            # https://stackoverflow.com/a/48763205
+            git push -q -f https://${GH_PAGES_TOKEN}@github.com/hunchcloud/elements.git gh-pages
+
+workflows:
+  build-gh-pages:
+    jobs:
+      - build:
+          context: gh-pages
+          filters:
+            branches:
+              only:
+                - master
