@@ -15,14 +15,17 @@ class HunchTabs extends HTMLElement {
   tabsSlot: HTMLSlotElement | null = null;
   panelsSlot: HTMLSlotElement | null = null;
 
-  connectedCallback() {
+  constructor() {
+    super();
     const shadow = this.attachShadow({ mode: "open" });
     shadow.appendChild(template.content.cloneNode(true));
 
     this.tabsSlot = shadow.querySelector('slot[name="tabs"]');
     this.tabsSlot?.addEventListener("click", this.onClickTabs);
     this.panelsSlot = shadow.querySelector('slot[name="panels"]');
+  }
 
+  connectedCallback() {
     this.render(0);
   }
 
