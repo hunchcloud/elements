@@ -1,6 +1,6 @@
 {
   "name": "@hunchcloud/elements",
-  "version": "0.2.0",
+  "version": "0.2.1",
   "description": "A collection of custom elements",
   "main": "dist/index.js",
   "files": [
@@ -26,7 +26,7 @@
     "docs:build": "node scripts/build-docs.js",
     "docs:dist": "parcel build www/index.html",
     "docs:serve": "parcel www/index.html",
-    "release": "rm -r dist && yarn build && npm publish --access public",
+    "release": "rm -rf dist && npm run build && npm publish --access public",
     "start": "tsc -w"
   },
   "devDependencies": {
