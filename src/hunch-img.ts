@@ -5,6 +5,15 @@ class HunchImg extends HTMLElement {
   img: HTMLImageElement = document.createElement("img");
   elStyle: HTMLStyleElement = document.createElement("style");
 
+  constructor() {
+    super();
+    const shadow = this.attachShadow({ mode: "closed" });
+    this.elStyle.textContent =
+      "img { width: 100%; height: 100%; object-fit: inherit; }";
+    shadow.appendChild(this.elStyle);
+    shadow.appendChild(this.img);
+  }
+
   static get observedAttributes() {
     return ["src", "srcset", "sizes"];
   }
@@ -14,11 +23,6 @@ class HunchImg extends HTMLElement {
   }
 
   connectedCallback() {
-    const shadow = this.attachShadow({ mode: "closed" });
-    this.elStyle.textContent =
-      "img { width: 100%; height: 100%; object-fit: inherit; }";
-    shadow.appendChild(this.elStyle);
-    shadow.appendChild(this.img);
     this.render();
     hunchObserver.observe(this);
   }

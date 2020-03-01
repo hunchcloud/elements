@@ -54,6 +54,7 @@ jobs:
       - run:
           command: |
             mv .circleci/.npmrc .
+            yarn
             npm run release
 
 workflows:
