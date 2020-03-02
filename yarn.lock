@@ -10,10 +10,10 @@
     postcss "7.0.26"
     purgecss "^2.0.6"
 
-"@hunchcloud/live-element@^0.2.4":
-  version "0.2.4"
-  resolved "https://registry.yarnpkg.com/@hunchcloud/live-element/-/live-element-0.2.4.tgz#7e6740d1f6b393cc30fdff3e4a62d6f85343dc88"
-  integrity sha512-R6qYh48Z1r5Lx50bsVYoOLsad6fwz7Gv8fyeT6lQe4/jNeAJBLMoQ1bbrOAi635lKp4Yys1HFByQzYBb4pEykw==
+"@hunchcloud/live-element@^0.3.0":
+  version "0.3.0"
+  resolved "https://registry.yarnpkg.com/@hunchcloud/live-element/-/live-element-0.3.0.tgz#b079f29093233c09c95a9448a16264436baa7060"
+  integrity sha512-U7ihEvquwjNTRoJjzyedJXRsVD3itKnMsf/t9Reo8qtwzEMTw21ETBRIJEbKVwdAIrOVfPEtBbIerz+U5/7JTw==
   dependencies:
     prismjs "^1.19.0"
 

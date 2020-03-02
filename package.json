@@ -31,7 +31,7 @@
   },
   "devDependencies": {
     "@fullhuman/postcss-purgecss": "^2.0.6",
-    "@hunchcloud/live-element": "^0.2.4",
+    "@hunchcloud/live-element": "^0.3.0",
     "@nonbili/posthtml-md-element": "^0.1.0",
     "cssnano": "^4.1.10",
     "highlight.js": "^9.18.1",

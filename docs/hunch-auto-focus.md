@@ -42,7 +42,7 @@ With `<hunch-auto-focus>`, auto focusing works when attached to DOM or `hidden` 
 </style>
 
 <live-element>
-<template>
+<textarea>
 <hunch-tabs style="display: block; border: 1px solid lightgray; padding: 1rem">
   <div slot="tabs" class="tabs">
     <div>Tab 0</div>
@@ -57,11 +57,11 @@ With `<hunch-auto-focus>`, auto focusing works when attached to DOM or `hidden` 
     <hunch-auto-focus>
       Panel 2: Auto focus textarea
       <input>
-      <textarea class="block" autofocus></textarea>
+      &lt;textarea class="block" autofocus>&lt;/textarea>
     </hunch-auto-focus>
   </div>
 </hunch-tabs>
-</template>
+</textarea>
 </live-element>
 
 <script src="../src/hunch-auto-focus.ts"></script>

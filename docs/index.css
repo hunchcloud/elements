@@ -45,7 +45,7 @@ code {
 }
 
 pre {
-  @apply mb-4 rounded-sm text-base;
+  @apply mb-4 rounded-sm;
 }
 
 table {
