@@ -41,6 +41,8 @@ With `<hunch-auto-focus>`, auto focusing works when attached to DOM or `hidden` 
   }
 </style>
 
+<live-element>
+<template>
 <hunch-tabs style="display: block; border: 1px solid lightgray; padding: 1rem">
   <div slot="tabs" class="tabs">
     <div>tab 0</div>
@@ -59,6 +61,8 @@ With `<hunch-auto-focus>`, auto focusing works when attached to DOM or `hidden` 
     </hunch-auto-focus>
   </div>
 </hunch-tabs>
+</template>
+</live-element>
 
 <script src="../src/hunch-auto-focus.ts"></script>
 <script src="../src/hunch-tabs.ts"></script>
