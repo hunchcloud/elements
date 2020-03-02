@@ -27,7 +27,16 @@ object-fit: cover;
 
 ### Default
 
-<live-element>
+<template id="live-style">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.19.0/themes/prism.min.css" />
+  <style>
+  ::slotted(*) {
+    overflow: hidden;
+  }
+  </style>
+</template>
+
+<live-element style-template-id="live-style">
 <textarea>
 <hunch-carousel style="height: 15rem;" interval="2000">
   <img
@@ -48,7 +57,7 @@ object-fit: cover;
 
 ### Crossfade
 
-<live-element>
+<live-element style-template-id="live-style">
 <textarea>
 <hunch-carousel style="height: 15rem;" crossfade>
   <img
