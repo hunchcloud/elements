@@ -24,7 +24,7 @@
   "scripts": {
     "build": "tsc -d",
     "docs:build": "node scripts/build-docs.js",
-    "docs:dist": "parcel build www/index.html",
+    "docs:dist": "parcel build --no-minify www/index.html",
     "docs:serve": "parcel www/index.html",
     "release": "rm -rf dist && npm run build && npm publish --access public",
     "start": "tsc -w"

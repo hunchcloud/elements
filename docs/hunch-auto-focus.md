@@ -45,17 +45,17 @@ With `<hunch-auto-focus>`, auto focusing works when attached to DOM or `hidden` 
 <template>
 <hunch-tabs style="display: block; border: 1px solid lightgray; padding: 1rem">
   <div slot="tabs" class="tabs">
-    <div>tab 0</div>
-    <div>tab 1</div>
-    <div>tab 2</div>
+    <div>Tab 0</div>
+    <div>Tab 1</div>
+    <div>Tab 2</div>
   </div>
   <div slot="panels" class="panels">
-    <div>Select tab 1 or tab 2 to see it works</div>
-    <hunch-auto-focus hidden>
-      Auto focus input <input autofocus>
+    <div>Select Tab 1 or Tab 2 to see it works</div>
+    <hunch-auto-focus>
+      Panel 1: Auto focus input <input autofocus>
     </hunch-auto-focus>
-    <hunch-auto-focus hidden>
-      Auto focus textarea
+    <hunch-auto-focus>
+      Panel 2: Auto focus textarea
       <input>
       <textarea class="block" autofocus></textarea>
     </hunch-auto-focus>
