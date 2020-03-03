@@ -1,6 +1,10 @@
-const css = require("fs").readFileSync("./src/hunch-navbar/index.css", {
-  encoding: "UTF-8"
-});
+let css;
+
+if (process.env.NODE_ENV === "production") {
+  css = require("./index.css.ts");
+} else {
+  css = require("fs").readFileSync("./src/hunch-navbar/index.css", "utf8");
+}
 
 const template = document.createElement("template");
 

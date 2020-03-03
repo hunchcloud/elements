@@ -22,7 +22,7 @@
   "homepage": "https://github.com/hunchcloud/elements#readme",
   "browserslist": "last 2 Chrome versions",
   "scripts": {
-    "build": "tsc -d",
+    "build": "node scripts/build-css.js && NODE_ENV=production tsc -d",
     "docs:build": "node scripts/build-docs.js",
     "docs:dist": "parcel build --no-minify www/index.html",
     "docs:serve": "parcel www/index.html",
