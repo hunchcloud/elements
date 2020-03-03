@@ -21,7 +21,7 @@ With `<hunch-auto-focus>`, auto focusing works when attached to DOM or `hidden` 
 </hunch-auto-focus>
 ```
 
-## Example
+## Live Example
 
 <style>
   .tabs {

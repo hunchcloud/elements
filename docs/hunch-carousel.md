@@ -17,7 +17,7 @@ A carousel/slider element.
 </hunch-carousel>
 ```
 
-## Example
+## Live Example
 
 <style>
 .slide {
@@ -36,9 +36,9 @@ object-fit: cover;
   </style>
 </template>
 
-<live-element style-template-id="live-style">
+<live-element style-template-id="live-style" style="height: 15rem;">
 <textarea>
-<hunch-carousel style="height: 15rem;" interval="2000">
+<hunch-carousel interval="2000">
   <img
     src="https://images.unsplash.com/photo-1581252397779-5d758caff3cb?ixlib=rb-1.2.1&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=1080&fit=max&ixid=eyJhcHBfaWQiOjExNDY4M30"
     class="slide"
@@ -57,9 +57,9 @@ object-fit: cover;
 
 ### Crossfade
 
-<live-element style-template-id="live-style">
+<live-element style-template-id="live-style" style="height: 15rem;">
 <textarea>
-<hunch-carousel style="height: 15rem;" crossfade>
+<hunch-carousel crossfade>
   <img
     src="https://images.unsplash.com/photo-1581252397779-5d758caff3cb?ixlib=rb-1.2.1&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=1080&fit=max&ixid=eyJhcHBfaWQiOjExNDY4M30"
     class="slide"

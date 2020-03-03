@@ -1,6 +1,6 @@
 const fs = require("fs");
 const posthtml = require("posthtml");
-const hljs = require("highlight.js");
+const Prism = require("prismjs");
 
 const readme = fs.readFileSync("docs/README.md", "utf8");
 
@@ -33,19 +33,19 @@ const mdToHtml = (src, dst, navItem) =>
       require("@nonbili/posthtml-md-element")({
         html: true,
         highlight: (str, lang) => {
-          if (lang && hljs.getLanguage(lang)) {
+          if (lang && Prism.languages[lang]) {
             try {
               return (
-                '<pre class="hljs ' +
+                '<pre class="language-' +
                 lang +
                 '">' +
-                hljs.highlight(lang, str, true).value +
+                Prism.highlight(str, Prism.languages[lang], lang) +
                 "</pre>"
               );
             } catch (_) {}
           }
 
-          return '<pre class="hljs">' + str + "</pre>";
+          return `<pre class="language-${lang}">${str}</pre>`;
         }
       })
     )

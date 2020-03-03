@@ -21,7 +21,7 @@ None.
 </hunch-tabs>
 ```
 
-## Example
+## Live Example
 
 <style>
   .tabs {

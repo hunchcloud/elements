@@ -3,5 +3,5 @@ dist
 node_modules
 yarn-error.log
 
-*.css.ts
+*-css.ts
 www
