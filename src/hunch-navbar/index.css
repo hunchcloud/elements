@@ -1,0 +1,41 @@
+:host {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+}
+
+::slotted([slot=nav]) {
+  display: flex;
+  flex-direction: column;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+
+#collapse {
+  flex-basis: 100%;
+  height: 0;
+  overflow: hidden;
+  transition: height 0.2s;
+}
+
+::slotted([slot=toggle]) {
+  cursor: pointer;
+}
+
+@media (min-width: 992px) {
+  ::slotted([slot=nav]) {
+    flex-direction: row;
+  }
+
+  ::slotted([slot=toggle]) {
+    display: none !important;
+  }
+
+  #collapse {
+    flex-basis: initial;
+    height: auto;
+  }
+}
