@@ -23,4 +23,5 @@ And you will be able use the following elements:
 - `<hunch-auto-focus>`: focus the first child element with the `autofocus` attribute
 - `<hunch-carousel>`: a carousel/slider element
 - `<hunch-img>`: a lazy loading image element
+- `<hunch-navbar>`: a responsive navbar element
 - `<hunch-tabs>`: a tab container element
