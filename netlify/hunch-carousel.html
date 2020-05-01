@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Hunch Elements</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.19.0/themes/prism.min.css">
+    <link rel="stylesheet" href="/docs.712821ef.css">
+  </head>
+  <body class="flex flex-col min-h-screen">
+    <header class="sticky top-0 h-16 px-4 flex items-center justify-between bg-indigo-500 text-white z-10 shadow-md">
+      <a class="text-xl font-semibold " href="/">Hunch Elements</a>
+      <a href="https://github.com/hunchcloud/elements">Code on GitHub</a>
+    </header>
+    <div class="flex flex-1">
+      <nav class="sticky py-8 bg-gray-100 overflow-auto" style="top: 4rem; height: calc(100vh - 4rem);">
+        <ul>
+          
+<li>
+  <a class="block pl-4 pr-20 hover:text-gray-800 text-gray-600" style="line-height: 2.5rem" href="/hunch-auto-focus.html">
+    hunch-auto-focus
+  </a>
+</li>
+<li>
+  <a class="block pl-4 pr-20 font-semibold text-purple-500" style="line-height: 2.5rem" href="/hunch-carousel.html">
+    hunch-carousel
+  </a>
+</li>
+<li>
+  <a class="block pl-4 pr-20 hover:text-gray-800 text-gray-600" style="line-height: 2.5rem" href="/hunch-navbar.html">
+    hunch-navbar
+  </a>
+</li>
+<li>
+  <a class="block pl-4 pr-20 hover:text-gray-800 text-gray-600" style="line-height: 2.5rem" href="/hunch-tabs.html">
+    hunch-tabs
+  </a>
+</li>
+        </ul>
+      </nav>
+      <main class="container p-8">
+        <h1>&lt;hunch-carousel&gt;</h1>
+<p>A carousel/slider element.</p>
+<h2>Observed attributes</h2>
+<table>
+<thead>
+<tr>
+<th>name</th>
+<th>type</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>interval</td>
+<td>number</td>
+</tr>
+</tbody>
+</table>
+<h2>Usage</h2>
+<pre class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>hunch-carousel</span><span class="token punctuation">></span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span><span class="token punctuation">></span></span>Slide 1<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">></span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span><span class="token punctuation">></span></span>Slide 2<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">></span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>hunch-carousel</span><span class="token punctuation">></span></span>
+</pre>
+<h2>Live Example</h2>
+<style>.slide {
+  object-fit: cover;
+}</style>
+<h3>Default</h3>
+<template id="live-style">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.19.0/themes/prism.min.css">
+  <style>::slotted(*) {
+  overflow: hidden;
+}</style>
+</template>
+<live-element style-template-id="live-style" style="height: 15rem;">
+<textarea>
+<hunch-carousel interval="2000">
+  <img src="https://images.unsplash.com/photo-1581252397779-5d758caff3cb?ixlib=rb-1.2.1&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=1080&fit=max&ixid=eyJhcHBfaWQiOjExNDY4M30" class="slide">
+  <img src="https://images.unsplash.com/photo-1581252165204-d54f656e8ce8?ixlib=rb-1.2.1&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=1080&fit=max&ixid=eyJhcHBfaWQiOjExNDY4M30" class="slide">
+  <img src="https://images.unsplash.com/photo-1581465823028-58e550a703a0?ixlib=rb-1.2.1&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=1080&fit=max&ixid=eyJhcHBfaWQiOjExNDY4M30" class="slide">
+</hunch-carousel>
+</textarea>
+</live-element>
+<h3>Crossfade</h3>
+<live-element style-template-id="live-style" style="height: 15rem;">
+<textarea>
+<hunch-carousel crossfade="">
+  <img src="https://images.unsplash.com/photo-1581252397779-5d758caff3cb?ixlib=rb-1.2.1&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=1080&fit=max&ixid=eyJhcHBfaWQiOjExNDY4M30" class="slide">
+  <img src="https://images.unsplash.com/photo-1581252165204-d54f656e8ce8?ixlib=rb-1.2.1&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=1080&fit=max&ixid=eyJhcHBfaWQiOjExNDY4M30" class="slide">
+  <img src="https://images.unsplash.com/photo-1581465823028-58e550a703a0?ixlib=rb-1.2.1&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=1080&fit=max&ixid=eyJhcHBfaWQiOjExNDY4M30" class="slide">
+</hunch-carousel>
+</textarea>
+</live-element>
+<script src="/hunch-carousel.e99679d4.js"></script>
+
+      </main>
+    </div>
+    <script src="/live-element.97fe5c8e.js"></script>
+  </body>
+</html>

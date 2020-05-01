@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Hunch Elements</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.19.0/themes/prism.min.css">
+    <link rel="stylesheet" href="/docs.712821ef.css">
+  </head>
+  <body class="flex flex-col min-h-screen">
+    <header class="sticky top-0 h-16 px-4 flex items-center justify-between bg-indigo-500 text-white z-10 shadow-md">
+      <a class="text-xl font-semibold " href="/">Hunch Elements</a>
+      <a href="https://github.com/hunchcloud/elements">Code on GitHub</a>
+    </header>
+    <div class="flex flex-1">
+      <nav class="sticky py-8 bg-gray-100 overflow-auto" style="top: 4rem; height: calc(100vh - 4rem);">
+        <ul>
+          
+<li>
+  <a class="block pl-4 pr-20 font-semibold text-purple-500" style="line-height: 2.5rem" href="/hunch-auto-focus.html">
+    hunch-auto-focus
+  </a>
+</li>
+<li>
+  <a class="block pl-4 pr-20 hover:text-gray-800 text-gray-600" style="line-height: 2.5rem" href="/hunch-carousel.html">
+    hunch-carousel
+  </a>
+</li>
+<li>
+  <a class="block pl-4 pr-20 hover:text-gray-800 text-gray-600" style="line-height: 2.5rem" href="/hunch-navbar.html">
+    hunch-navbar
+  </a>
+</li>
+<li>
+  <a class="block pl-4 pr-20 hover:text-gray-800 text-gray-600" style="line-height: 2.5rem" href="/hunch-tabs.html">
+    hunch-tabs
+  </a>
+</li>
+        </ul>
+      </nav>
+      <main class="container p-8">
+        <h1>&lt;hunch-auto-focus&gt;</h1>
+<p>Focus the first child element with the <code>autofocus</code> attribute.</p>
+<p>Normally the <code>autofocus</code> only works when the element was first rendered. For example, if you have an <code>&lt;input autofocus&gt;</code> inside a modal, it works when opening the modal for the first time, but not afterwards.</p>
+<p>With <code>&lt;hunch-auto-focus&gt;</code>, auto focusing works when attached to DOM or <code>hidden</code> attribute changes from false to true.</p>
+<h2>Observed attributes</h2>
+<table>
+<thead>
+<tr>
+<th>name</th>
+<th>type</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>hidden</td>
+<td>boolean</td>
+</tr>
+</tbody>
+</table>
+<h2>Usage</h2>
+<pre class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>hunch-auto-focus</span><span class="token punctuation">></span></span>
+  An input with autofocus attribute
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>input</span> <span class="token attr-name">autofocus</span><span class="token punctuation">></span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>hunch-auto-focus</span><span class="token punctuation">></span></span>
+</pre>
+<h2>Live Example</h2>
+<style>.tabs {
+  display: flex;
+  cursor: pointer;
+  border-bottom: 1px solid lightgray;
+}
+
+.tabs > * {
+  padding: 0.5rem 1rem;
+}
+
+.tabs > *.active {
+  color: royalblue;
+  border-bottom: 2px solid currentcolor;
+}
+
+.panels {
+  padding: 1rem;
+}</style>
+<live-element>
+<textarea>
+<hunch-tabs style="display: block; border: 1px solid lightgray; padding: 1rem">
+  <div slot="tabs" class="tabs">
+    <div>Tab 0</div>
+    <div>Tab 1</div>
+    <div>Tab 2</div>
+  </div>
+  <div slot="panels" class="panels">
+    <div>Select Tab 1 or Tab 2 to see it works</div>
+    <hunch-auto-focus>
+      Panel 1: Auto focus input <input autofocus="">
+    </hunch-auto-focus>
+    <hunch-auto-focus>
+      Panel 2: Auto focus textarea
+      <input>
+      &lt;textarea class="block" autofocus>&lt;/textarea>
+    </hunch-auto-focus>
+  </div>
+</hunch-tabs>
+</textarea>
+</live-element>
+<script src="/hunch-auto-focus.74f7ce0d.js"></script>
+<script src="/hunch-tabs.fb558c28.js"></script>
+
+      </main>
+    </div>
+    <script src="/live-element.97fe5c8e.js"></script>
+  </body>
+</html>

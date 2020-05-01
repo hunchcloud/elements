@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Hunch Elements</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.19.0/themes/prism.min.css">
+    <link rel="stylesheet" href="/docs.712821ef.css">
+  </head>
+  <body class="flex flex-col min-h-screen">
+    <header class="sticky top-0 h-16 px-4 flex items-center justify-between bg-indigo-500 text-white z-10 shadow-md">
+      <a class="text-xl font-semibold " href="/">Hunch Elements</a>
+      <a href="https://github.com/hunchcloud/elements">Code on GitHub</a>
+    </header>
+    <div class="flex flex-1">
+      <nav class="sticky py-8 bg-gray-100 overflow-auto" style="top: 4rem; height: calc(100vh - 4rem);">
+        <ul>
+          
+<li>
+  <a class="block pl-4 pr-20 hover:text-gray-800 text-gray-600" style="line-height: 2.5rem" href="/hunch-auto-focus.html">
+    hunch-auto-focus
+  </a>
+</li>
+<li>
+  <a class="block pl-4 pr-20 hover:text-gray-800 text-gray-600" style="line-height: 2.5rem" href="/hunch-carousel.html">
+    hunch-carousel
+  </a>
+</li>
+<li>
+  <a class="block pl-4 pr-20 font-semibold text-purple-500" style="line-height: 2.5rem" href="/hunch-navbar.html">
+    hunch-navbar
+  </a>
+</li>
+<li>
+  <a class="block pl-4 pr-20 hover:text-gray-800 text-gray-600" style="line-height: 2.5rem" href="/hunch-tabs.html">
+    hunch-tabs
+  </a>
+</li>
+        </ul>
+      </nav>
+      <main class="container p-8">
+        <h1>&lt;hunch-navbar&gt;</h1>
+<p>A responsive navbar element.</p>
+<h2>Usage</h2>
+<pre class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>hunch-navbar</span><span class="token punctuation">></span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>span</span><span class="token punctuation">></span></span>Logo<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>span</span><span class="token punctuation">></span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>ul</span> <span class="token attr-name">slot</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>nav<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>li</span><span class="token punctuation">></span></span>Link 1<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>li</span><span class="token punctuation">></span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>li</span><span class="token punctuation">></span></span>Link 2<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>li</span><span class="token punctuation">></span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>ul</span><span class="token punctuation">></span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>button</span> <span class="token attr-name">slot</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>toggle<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>Toggle<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>button</span><span class="token punctuation">></span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>hunch-navbar</span><span class="token punctuation">></span></span>
+</pre>
+<h2>Live Example</h2>
+<live-element class="grid-cols-1">
+<textarea>
+<hunch-navbar class="bg-green-200 py-1 px-3">
+  <span class="text-lg">Logo</span>
+  <ul slot="nav" class="text-sm">
+    <li class="mx-4">Link 1</li>
+    <li class="mx-4">Link 2</li>
+  </ul>
+  <button slot="toggle" class="bg-transparent flex p-0">
+    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z"></path></svg>
+  </button>
+</hunch-navbar>
+</textarea>
+</live-element>
+<script type="module" src="/hunch-navbar.fd9047f3.js"></script>
+
+      </main>
+    </div>
+    <script src="/live-element.97fe5c8e.js"></script>
+  </body>
+</html>
